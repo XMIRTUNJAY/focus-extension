@@ -1,0 +1,43 @@
+{
+   "background": {
+      "page": "global.html"
+   },
+   "browser_action": {
+      "default_icon": "icon_16.png",
+      "default_popup": "popover.html",
+      "default_title": "FOCUS"
+   },
+   "content_scripts": [
+      {
+         "js": [
+            "inject-chrome.js"
+         ],
+         "matches": [
+            "http://*/*",
+            "https://*/*"
+         ]
+      }
+   ],
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com https://www.bumblebeesystems.com https://connect.facebook.net; object-src 'self'",
+   "default_locale": "en",
+   "description": "Blocking time-wasting sites while you are working",
+   "homepage_url": "https://www.linkedin.com/in/mirtunjayvitcc",
+   "icons": {
+      "128": "icon.png",
+      "16": "icon_16.png",
+      "48": "icon_48.png"
+   },
+   "incognito": "spanning",
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC6lrA7F0t4ZogmuiIHwVtBpMrxsm+z5pz/L6hQwswFZcsTRitz8O2DlEHWaVpuTYVelO3HFSulToF+/02yncFlwVMQm9x8hlnSp3a8+HNdgZ+LeyU6fn/Vlg0ttxTnpeRmsPUBG12fCHmkWo8D8p9fLmkeGkJ3IqkCM8K8culjHwIDAQAB",
+   "manifest_version": 2,
+   "name": "FOCUS",
+   "options_page": "view.html",
+   "permissions": [
+      "tabs",
+      "contextMenus",
+      "idle",
+      "storage"
+   ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0"
+}
