@@ -15,6 +15,7 @@
     <script src="scripts/l16n.js"></script>
     <script src="scripts/highcharts.js"></script>
     <script src="scripts/view.js"></script>
+    <script src="loginreg.js" type="text/javascript"></script>
     <title>FOCUS - View Settings</title>
 </head>
 <style>
@@ -77,6 +78,7 @@
     <hr align="left" />
     <div id="vtab">
         <ul>
+            <li class="timeTracker" href="#login"><span translate="yes">Login</span></li>
             <li class="timeTracker" href="#timeTracker"><span translate="yes">Time Tracker</span></li>
             <li class="lockdown" href="#blockedSites"><span translate="yes">Instant Lockdown</span></li>
             <li class="blockedSites" href="#blockedSites"><span translate="yes">Block List</span></li>
@@ -85,6 +87,26 @@
             <li class="advanced" href="#advanced"><span translate="yes">Advanced Settings</span></li>
             <li class="timeRemaining" href="#timeAllowed"><span translate="yes">Time Remaining</span></li>
         </ul>
+        <div>
+            <h3><span translate="yes">LOGIN</span></h3>
+            <p><strong><span translate="yes">IMPORTANT: You can only synchronise your time spent after
+                        login</span></strong>
+                <form action=" ">
+                    <ul class="lockdown">
+                        <l1><label for="email">Email ID&nbsp;&nbsp;&nbsp;</label>
+                            <input type="text" class="lockdown" name="email" id="email" value="" placeholder="Email ID"
+                                required><br></l1>
+                        <p style="color:red;" id="error"><br><br><br></p>
+                        <l1>
+                            <label for="password">Password&nbsp;&nbsp;&nbsp;</label>
+                            <input type="text" class="lockdown" name="password" id="password" value=""
+                                placeholder="Password" required><br><br><br></l1>
+                    </ul>
+                    <input type="submit" class="button" id="Submit" value="Submit">
+                </form>
+
+
+        </div>
         <div class="timeTracker">
             <h3><span translate="yes">Time Tracker</span></h3>
             <div id="topSites" style="width: 620px; height: 400px; margin: 0 auto"></div>

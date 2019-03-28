@@ -7,6 +7,16 @@
     <script src="scripts/extension.js"></script>
     <script src="scripts/popover.js"></script>
     <title>FOCUS <span translate="yes">Status</span></title>
+    <style>
+        li.span {
+            width: 100px;
+            transition: width 2s;
+        }
+
+        li.span:hover {
+            width: 300px;
+        }
+    </style>
 </head>
 
 <body class="popover">
@@ -45,10 +55,17 @@
     <div id="matchedSite"></div>
     <hr align="left" />
     <ul class="popover">
-        <li><a id="addSite" class="addsite" href="#"><span translate="yes">Block Site</span></a>
-        <li><a id="timeTracker" href="#"><span translate="yes">Track Your Time</span></a>
-        <li><a id="instantLockdown" href="#"><span translate="yes">Instant Lockdown</span></a>
+        <li><a id="login" href="#"><span translate="yes" style="text-decoration: underline;
+  text-decoration-color: red;text-shadow: 2px 2px 8px #FF0000;color: rgb(226, 19, 19);transform: rotateY(60deg);
+  transform-style: preserve-3d;">
+                    <strong>LOGIN</strong>
+                </span></a></li>
+
+        <li><a id="timeTracker" href="#"><span translate="yes">Time
+                    Tracker </span></a>
+
         <li><a id="settings" href="#"><span translate="yes">Settings</span></a>
+
     </ul>
 </body>
 
