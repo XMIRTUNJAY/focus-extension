@@ -5,25 +5,28 @@ function TimeTracker() {
     this.maxDaysToKeep = 30;
 
     asyncHelper = (data, c, newObj) => {
-        let m = parseInt(localStorage.getItem("counter"));
-        localStorage.setItem("counter", m + 1);
-        // alert( localStorage.getItem( "counter" ) );
-        var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
-        xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-                // alert(c+" "+this.responseText);
-                localStorage.setItem("counter", parseInt(localStorage.getItem("counter")) - 1);
-                // alert( localStorage.getItem( "counter" ) );
-                newObj[c] = JSON.parse(this.responseText).msg;
-                localStorage.setItem("visited", JSON.stringify(newObj));
-            }
-        });
+        try {
+            let m = parseInt(localStorage.getItem("counter"));
+            localStorage.setItem("counter", m + 1);
+            // alert( localStorage.getItem( "counter" ) );
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === 4) {
+                    // alert(c+" "+this.responseText);
+                    localStorage.setItem("counter", parseInt(localStorage.getItem("counter")) - 1);
+                    // alert( localStorage.getItem( "counter" ) );
+                    newObj[c] = JSON.parse(this.responseText).msg;
+                    localStorage.setItem("visited", JSON.stringify(newObj));
+                }
+            });
 
-        xhr.open("POST", "https://pacific-woodland-35375.herokuapp.com/api/getcategory");
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        xhr.setRequestHeader("cache-control", "no-cache");
-        xhr.send(data);
+            xhr.open("POST", "https://pacific-woodland-35375.herokuapp.com/api/getcategory");
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            xhr.setRequestHeader("cache-control", "no-cache");
+            xhr.send(data);
+        }
+        catch (c) { alert("Unable to reach server") }
     }
     asyncLocal = (c) => {
         let tObj = localStorage.getItem("visited");
