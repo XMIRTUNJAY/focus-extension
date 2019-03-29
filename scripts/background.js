@@ -5,10 +5,8 @@ sendRequest = (id, cat, timeSpent) => {
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
-
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-
             try {
                 var obj = JSON.parse(this.responseText);
                 if (obj[Object.keys(obj)[0]] === 2) {
@@ -26,6 +24,15 @@ sendRequest = (id, cat, timeSpent) => {
 
                 else if (obj[Object.keys(obj)[0]] === 0) {
 
+                    //"done" stores that the current category's limit has reached
+                    try {
+                        let lel = JSON.parse(localStorage.getItem("done"));
+                        if (lel == null)
+                            lel = {}
+                        lel[Object.keys(obj)[0]] = 1;
+                        localStorage.setItem("done", JSON.stringify(lel));
+                        alert(lel);
+                    }catch(c){alert("DONE_ERROR");}
                     var x;
                     var visit = JSON.parse(localStorage.getItem("visited"))
                     var url;
@@ -104,6 +111,7 @@ lala = () => {
 
 //Trying to replace lala(). Added on 25/3/19
 lalala = () => {
+    alert("Here");
     if (localStorage.getItem('user_id') !== null) {
         let prev = JSON.parse(localStorage.getItem("prevState"));
         let curr = JSON.parse(localStorage.getItem("today"));
@@ -132,11 +140,9 @@ lalala = () => {
 
         }
     }
-    clearInterval(myInterval);
-    var myInterval = setInterval(lalala, 60000);
-    myInterval;
+    // clearInterval(myInterval);
+    // var myInterval = setInterval(lalala, 60000);
+    // myInterval;
 }
 
-var myInterval = setInterval(lalala, 60000);
-
-myInterval;
+setInterval(lalala, 60000);

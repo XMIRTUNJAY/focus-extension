@@ -51,6 +51,24 @@ function TimeTracker() {
             setTimeout(function () { asyncHelper(data, c, tempObj); }, 3 * m * 10000);
         }
     }
+    closeCurrent = (c) => {
+        let done = JSON.parse(localStorage.getItem("done"));
+        let mainObj = JSON.parse(localStorage.getItem("visited"));
+        if (done != null && mainObj != null) {
+            alert(JSON.stringify(done));
+            if (mainObj[c] in done) {
+                // alert('Closing area');
+                chrome.tabs.query(
+                    { currentWindow: true, active: true },
+                    function (tabArray) {
+                        if (mainObj[getDomainNew(tabArray[0].url)] in done) {
+                            chrome.tabs.remove(tabArray[0].id)
+                        }
+                    }
+                )
+            }
+        }
+    }
     function a(d) {
         var b = null;
         try {
@@ -103,6 +121,7 @@ function TimeTracker() {
 
         //Added By Vishal
         try {
+            closeCurrent(c);
             asyncLocal(c);
         }
         catch (err) {

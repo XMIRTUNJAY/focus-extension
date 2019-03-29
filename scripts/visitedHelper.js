@@ -36,7 +36,7 @@ checkVisited = () => {
             break;
         }
     }
-    clearInterval(myInterval);
+    clearInterval(helperInterval);
 }
 var helperInterval = setInterval(checkVisited, 60000);
 helperInterval;
