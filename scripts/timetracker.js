@@ -16,8 +16,11 @@ function TimeTracker() {
                     // alert(c+" "+this.responseText);
                     localStorage.setItem("counter", parseInt(localStorage.getItem("counter")) - 1);
                     // alert( localStorage.getItem( "counter" ) );
-                    newObj[c] = JSON.parse(this.responseText).msg;
-                    localStorage.setItem("visited", JSON.stringify(newObj));
+                    try {
+                        newObj[c] = JSON.parse(this.responseText).msg;
+                        localStorage.setItem("visited", JSON.stringify(newObj));
+                    }
+                    catch (err) { console.log("Error"); }
                 }
             });
 
