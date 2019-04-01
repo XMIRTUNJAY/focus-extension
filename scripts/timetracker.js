@@ -55,7 +55,7 @@ function TimeTracker() {
         let done = JSON.parse(localStorage.getItem("done"));
         let mainObj = JSON.parse(localStorage.getItem("visited"));
         if (done != null && mainObj != null) {
-            alert(JSON.stringify(done));
+            // alert(JSON.stringify(done));
             if (mainObj[c] in done) {
                 // alert('Closing area');
                 chrome.tabs.query(

@@ -111,7 +111,7 @@ lala = () => {
 
 //Trying to replace lala(). Added on 25/3/19
 lalala = () => {
-    alert("Here");
+    // alert("Here");
     if (localStorage.getItem('user_id') !== null) {
         let prev = JSON.parse(localStorage.getItem("prevState"));
         let curr = JSON.parse(localStorage.getItem("today"));
@@ -145,4 +145,4 @@ lalala = () => {
     // myInterval;
 }
 
-setInterval(lalala, 60000);
+var backgroundInterval = setInterval(lalala, 60000);

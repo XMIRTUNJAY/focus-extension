@@ -8,10 +8,14 @@ visitedHelper = (data, c, newObj) => {
                 try {
                     newObj[c] = JSON.parse(this.responseText).msg;
                     localStorage.setItem("visited", JSON.stringify(newObj));
-                    var helperInterval = setInterval(lalala, 60000);
-                    helperInterval;
+                    clearInterval(visitedInterval);
+                    var visitedInterval = setInterval(checkVisited, 90000);
                 }
-                catch (c) { alert("Unable to reach server") }
+                catch (err) {
+                    delete newObj[c];
+                    localStorage.setItem("visited", JSON.stringify(newObj));
+                    alert("Unable to classify "+c);
+                }
             }
         });
 
@@ -20,23 +24,27 @@ visitedHelper = (data, c, newObj) => {
         xhr.setRequestHeader("cache-control", "no-cache");
         xhr.send(data);
     }
-    catch (c) { alert("Unable to reach server") }
+    catch (err) { alert("Unable to reach server") }
 }
 
 checkVisited = () => {
     // alert("Its here");
     let cats = JSON.parse(localStorage.getItem("visited"));
-    let arr = Object.keys(cats);
-    // alert(arr);
-    for (let i in arr) {
-        if (cats[arr[i]] == "true") {
-            // alert("Started " + arr[i]);
-            var data = `url=${arr[i]}`;
-            visitedHelper(data, arr[i], cats);
-            break;
+    alert(JSON.stringify(cats));
+    if (cats != null) {
+        let arr = Object.keys(cats);
+        // alert(arr);
+        for (let i in arr) {
+            if (cats[arr[i]] == "true") {
+                // alert("For " + arr[i]);
+                var data = `url=${arr[i]}`;
+                cats[arr[i]] = "In-Process";
+                localStorage.setItem("visited", JSON.stringify(cats));
+                visitedHelper(data, arr[i], cats);
+                break;
+            }
         }
     }
-    clearInterval(helperInterval);
 }
-var helperInterval = setInterval(checkVisited, 60000);
-helperInterval;
+
+var visitedInterval = setInterval(checkVisited, 90000);

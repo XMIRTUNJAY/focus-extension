@@ -25,7 +25,7 @@ usageHelper = (id, cat) => {
     catch (c) { alert("Unable to reach server") }
 }
 checkUsage = () => {
-    alert('I am running ' + (new Date()));
+    // alert('I am running ' + (new Date()));
     if (localStorage.getItem('user_id') !== null) {
         var a = JSON.parse(localStorage.getItem("done"));
         if (a != null) {
@@ -36,4 +36,4 @@ checkUsage = () => {
         }
     }
 }
-setInterval(checkUsage, 30000);
+var usageInterval = setInterval(checkUsage, 30000);
