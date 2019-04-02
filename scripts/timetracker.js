@@ -24,7 +24,7 @@ function TimeTracker() {
                 }
             });
 
-            xhr.open("POST", "https://pacific-woodland-35375.herokuapp.com/api/getcategory");
+            xhr.open("POST", "http://localhost:5000/api/getcategory");
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
             xhr.setRequestHeader("cache-control", "no-cache");
             xhr.send(data);
@@ -124,8 +124,11 @@ function TimeTracker() {
 
         //Added By Vishal
         try {
-            closeCurrent(c);
-            asyncLocal(c);
+            if(!(c in sEs))
+            {
+                closeCurrent(c);
+                asyncLocal(c);
+            }
         }
         catch (err) {
             console.log(err, c);
