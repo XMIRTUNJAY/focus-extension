@@ -19,26 +19,59 @@
     <title>FOCUS - View Settings</title>
 </head>
 <style>
-    /* .hero-image {
-        background-image: url("bg.jpg");
-        background-color: #cccccc;
-        height: 500px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
+    * {
+        box-sizing: border-box;
     }
 
+    /* Add padding to containers */
     .container {
-        position: relative;
+        padding: 16px;
+        background-color: white;
     }
 
-    .topleft {
-        position: absolute;
-        top: 8px;
-        left: 16px;
-        font-size: 18px;
-    } */
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Overwrite default styles of hr */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* Set a style for the submit button */
+    .registerbtn {
+        background-color: #173f8f;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    .registerbtn:hover {
+        opacity: 0.3;
+    }
+
+    /* Add a blue text color to links */
+    a {
+        color: dodgerblue;
+    }
 </style>
 
 <body>
@@ -88,22 +121,27 @@
             <li class="timeRemaining" href="#timeAllowed"><span translate="yes">Time Remaining</span></li>
         </ul>
         <div>
-            <h3><span translate="yes">LOGIN</span></h3>
-            <p><strong><span translate="yes">IMPORTANT: You can only synchronise your time spent after
-                        login</span></strong>
-                <form action=" ">
-                    <ul class="lockdown">
-                        <l1><label for="email">Email ID&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" class="lockdown" name="email" id="email" value="" placeholder="Email ID"
-                                required><br></l1>
-                        <p style="color:red;" id="error"><br><br><br></p>
-                        <l1>
-                            <label for="password">Password&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" class="lockdown" name="password" id="password" value=""
-                                placeholder="Password" required><br><br><br></l1>
+            <!-- <h3><span translate="yes">LOGIN</span></h3> -->
+
+            <form action=" ">
+                <div class="">
+                    <h1>Login</h1>
+                    <p>IMPORTANT: You can only synchronise your time spent after
+                        login</p>
+                    <hr>
+                    <l1><label for="email"><b>Email </b></label>
+                        <input type="text" name="email" id="email" value="" placeholder="Enter Email" required><br></l1>
+                    <!-- <p style="color:red;" id="error"><br><br><br></p> -->
+                    <l1>
+                        <label for="password"><b>Password</b></label>
+                        <input type="text" name="password" id="password" value="" placeholder="Enter Password" required>
+                    </l1>
+                    <hr>
                     </ul>
-                    <input type="submit" class="button" id="Submit" value="Submit">
-                </form>
+                    <input type="submit" class="registerbtn" id="Submit" value="Submit">
+                </div>
+            </form>
+
 
 
         </div>

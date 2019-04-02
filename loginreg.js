@@ -11,6 +11,7 @@ function getUrlVars() {
 
 // Function to get input value.
 $( document ).ready( function () {
+
     var mail = getUrlVars()[ "email" ];
     var pwd = getUrlVars()[ "password" ];
     try {
@@ -56,6 +57,7 @@ $( document ).ready( function () {
         xhr.setRequestHeader( "postman-token", "c90e4029-9a6a-49ce-2dfa-a4a42f771a37" );
 
         xhr.send( data );
+        $( "#Submit" ).attr( "disabled", true );
     }
     catch ( err ) {
         console.log( err, "Password Error" );
