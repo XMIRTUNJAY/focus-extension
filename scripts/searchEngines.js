@@ -4,8 +4,9 @@ var sEs = {
     "https://www.baidu.com": 1,
     "https://www.google.com": 1,
     "https://yandex.ru": 1,
-    "https://www.ask.com":1,
-    "https://in.yahoo.com":1,
-    "https://www.bing.com":1,
-    "https://www.aol.com":1
+    "https://www.ask.com": 1,
+    "https://in.yahoo.com": 1,
+    "https://www.bing.com": 1,
+    "https://www.aol.com": 1,
+    "http://google.com": 1
 }
